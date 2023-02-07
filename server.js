@@ -2,13 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs")
 
-const file = fs.readFileSync("./FCE08E1F95319DD1236AC24242F22090.txt")
+const file = fs.readFileSync("./17B9451FA0E17131ED277281ACEB7D46.txt")
 const app = express();
 
 var corsOptions = {
   origin: "*",
   // origin: "http://localhost:8081",
-  origin: "http://100.25.182.245:8080",
+  // origin: "http://100.25.182.245:8080",
 };
 
 app.use(cors(corsOptions));
@@ -30,8 +30,8 @@ db.sequelize.sync();
 //   initial();
 // });
 
-app.get("/.well-known/pki-validation/FCE08E1F95319DD1236AC24242F22090.txt",(req,res)=>{
-  res.sendFile("/home/ubuntu/auth-module-v2/FCE08E1F95319DD1236AC24242F22090.txt")
+app.get("/.well-known/pki-validation/17B9451FA0E17131ED277281ACEB7D46.txt",(req,res)=>{
+  res.sendFile("/home/ubuntu/auth-module-v2/17B9451FA0E17131ED277281ACEB7D46.txt")
 });
 
 // simple route
