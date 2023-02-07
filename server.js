@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs")
 
+const file = fs.readFileSync("./D9C8D147A0CB31FA98792612697468F2.txt")
 const app = express();
 
 var corsOptions = {
@@ -27,6 +29,10 @@ db.sequelize.sync();
 //   console.log('Drop and Resync Database with { force: true }');
 //   initial();
 // });
+
+app.get("/.well-known/pki-validation/D9C8D147A0CB31FA98792612697468F2.txt",(req,res)=>{
+  res.sendFile("./D9C8D147A0CB31FA98792612697468F2.txt")
+}
 
 // simple route
 app.get("/", (req, res) => {
