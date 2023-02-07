@@ -1,8 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const fs = require("fs")
 
-const file = fs.readFileSync("./17B9451FA0E17131ED277281ACEB7D46.txt")
 const app = express();
 
 var corsOptions = {
@@ -29,10 +27,6 @@ db.sequelize.sync();
 //   console.log('Drop and Resync Database with { force: true }');
 //   initial();
 // });
-
-app.get("/.well-known/pki-validation/17B9451FA0E17131ED277281ACEB7D46.txt",(req,res)=>{
-  res.sendFile("/home/ubuntu/auth-module-v2/17B9451FA0E17131ED277281ACEB7D46.txt")
-});
 
 // simple route
 app.get("/", (req, res) => {
