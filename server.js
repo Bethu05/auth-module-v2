@@ -3,8 +3,8 @@ const cors = require("cors");
 const fs = require('fs')
 const https = require('https')
 
-const key = fs.readFile('privatekey.pem')
-const cert = fs.readFile('certificate.pem')
+const key = fs.readFile('./privatekey.pem')
+const cert = fs.readFile('./certificate.pem')
 
 const app = express();
 
