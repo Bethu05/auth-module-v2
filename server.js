@@ -11,6 +11,17 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
+// ! New Changes
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src https:; script-src https: 'unsafe-inline'; connect-src https:"
+  );
+  next();
+});
+
+// ! End of new Changes
+
 // parse requests of content-type - application/json
 app.use(express.json());
 
