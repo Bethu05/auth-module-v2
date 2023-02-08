@@ -1,12 +1,17 @@
 const express = require("express");
 const cors = require("cors");
+//const fs = require('fs')
+//const https = require('https')
+
+//const key = fs.readFile('./privatekey.pem')
+//const cert = fs.readFile('./certificate.pem')
 
 const app = express();
 
 var corsOptions = {
   origin: "*",
   // origin: "http://localhost:8081",
-  origin: "http://100.25.182.245:8080",
+  // origin: "http://100.25.182.245:8080",
 };
 
 app.use(cors(corsOptions));
@@ -39,6 +44,13 @@ db.sequelize.sync();
 //   initial();
 // });
 
+/*
+const cred = {
+  key,
+  cert
+}
+*/
+
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Nodejs Authentication application." });
@@ -54,6 +66,9 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
+//const httpsServer = https.createServer(cred,app)
+//httpsServer.listen(8443)
 
 function initial() {
   Role.create({
